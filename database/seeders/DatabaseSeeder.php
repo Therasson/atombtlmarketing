@@ -3,12 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\Pos;
-use App\Models\ProductVisit;
-use App\Models\Routing;
 use App\Models\User;
 use App\Models\Area;
 use App\Models\Sector;
 use App\Models\Product;
+use App\Models\Routing;
+use App\Models\ProductVisit;
+use Spatie\Permission\Models\Role;
 
 /**
  * use Spatie\Models\Role
@@ -31,7 +32,8 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        User::factory(10)->create();
+
+        User::factory(1)->create();
         Area::factory(15)->create();
         Sector::factory(25)->create();
         Routing::factory(30)->create();

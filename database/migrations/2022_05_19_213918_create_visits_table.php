@@ -21,6 +21,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->string('picture_before')->nullable();
+            $table->string('picture_after')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
             $table->dateTime('visit_date_time');

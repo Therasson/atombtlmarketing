@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreignId('routing_id')->constrained('routings')
                                 ->onUpdate('cascade')
                                 ->onDelete('cascade');
+            $table->string('picture')->nullable();
             $table->string('manager_name');
             $table->string('manager_contact');
             $table->string('pos_type');
