@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('areas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('user_id')->constrained('users')
+                                ->onUpdate('cascade')
+                                ->onDelete('cascade');
             $table->text('description')->nullable();
             $table->integer('etat')->default(1);
             $table->timestamps();

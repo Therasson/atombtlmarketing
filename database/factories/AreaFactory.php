@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,7 @@ class AreaFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'user_id' => User::all()->random()->id,
             'description' => $this->faker->paragraph(),
             'etat' => 1,
         ];

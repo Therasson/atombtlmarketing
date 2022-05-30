@@ -9,7 +9,7 @@ use App\Models\Sector;
 use App\Models\Product;
 use App\Models\Routing;
 use App\Models\ProductVisit;
-use Spatie\Permission\Models\Role;
+use App\Models\Role;
 
 /**
  * use Spatie\Models\Role
@@ -32,8 +32,14 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $roles = Role::factory(4)->create();
+        $roles = $roles->all();
+        $users = User::factory(10)->create();
+        foreach($users as $user)
+        {
+            $user->assignRole($roles[rand(0,3)]->name);
+        }
 
-        User::factory(1)->create();
         Area::factory(15)->create();
         Sector::factory(25)->create();
         Routing::factory(30)->create();
