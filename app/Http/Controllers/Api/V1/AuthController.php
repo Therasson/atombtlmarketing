@@ -58,7 +58,7 @@ class AuthController extends Controller
     /**
      * Connexion d'un utilisateur
      */
-    public function login(Request $request)
+    public function loginOld(Request $request)
     {
        
         //validate user
@@ -83,6 +83,36 @@ class AuthController extends Controller
             'token' => auth()->user()->createToken('secret')->plainTextToken
         ], 200);
 
+    }
+
+
+    public function login (Request $request){
+        
+        $success = true;
+        return response([
+            'success' => $success
+        ], 200);
+
+        
+        /*$credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        
+        if(Auth::attempt($credentials)){
+            $success = true;
+            $message = 'User login successfully';
+        }else{
+            $success = false;
+            $message = "Unauthorised";
+        }
+
+        $response = [
+            'success' => $success,
+            'message' => $message
+        ];
+
+        return response()->json($response);*/
     }
 
 
